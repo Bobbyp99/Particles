@@ -9,7 +9,6 @@ void Engine::run()
 	p.unitTests();
 	cout << "Unit tests complete.  Starting engine..." << endl;
 
-	m_Window.setFramerateLimit(60);
 	
     while (m_Window.isOpen())
     {
