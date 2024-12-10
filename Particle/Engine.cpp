@@ -33,21 +33,19 @@ void Engine::input()
 		    cout << "The Escape key was pressed" << endl;
 			event.type = Event::Closed;
 		}
-		if (event.mouseButton.button == sf::Mouse::Left) 
+		if (event.type == sf::Event::MouseButtonPressed)
 		{
-			cout << "the left mouse button was pressed" << endl;
-			cout << "mouse x: " << event.mouseButton.x << endl;
-			cout << "mouse y: " << event.mouseButton.y << endl;
-
-		    for (int i = 0; i < 5; ++i)
-		    {			
-		    	int numPoints = rand() % (50 - 25 + 1) + 25;
-		    	Vector2i mouseClickPosition = Vector2i(event.mouseButton.x, event.mouseButton.y);
-		    	Particle pDisplay(m_Window, numPoints, mouseClickPosition);
-		    	m_particles.push_back(pDisplay);
-		    }
-	    }
-       }
+			// Left click (create particles)
+			if (event.mouseButton.button == sf::Mouse::Left)
+			{
+				// Construct particles
+				for (int i = 0; i < PARTICLES_GENERATED; i++)
+				{
+					m_particles.push_back(Particle(m_Window, (rand() % VERT_RANGE) + VERT_RANGE_LOWER, sf::Vector2i{ event.mouseButton.x, event.mouseButton.y }));
+				}
+			}
+		}
+	}
 }
 void Engine::update(float dtAsSeconds)
 {
