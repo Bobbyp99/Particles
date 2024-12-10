@@ -90,7 +90,7 @@ void Particle::update(float dt)
 {
 	m_ttl -= dt;
 	rotate(dt * m_radiansPerSec);
-	scale(SCALE);
+	scale(SCALE - dt);
 	
 	// movement of the particle affected by gravity
 	float dx, dy;
