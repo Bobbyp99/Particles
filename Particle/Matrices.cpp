@@ -87,7 +87,7 @@ namespace Matrices
             }
             os << '\n';
         }
-        os << '\n' << '\n' << '\n' << '\n';
+        os << '\n';
         return os;
     }
 
