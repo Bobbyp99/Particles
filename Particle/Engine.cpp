@@ -27,12 +27,11 @@ void Engine::input()
 	{
 		if (event.type == sf::Event::Closed)  //if event is closed, then execute close command.
 		{
-          	   m_Window.close();
+          	    m_Window.close();
        	        }
      	        if (Keyboard::isKeyPressed(Keyboard::Escape))
 		{
-		    cout << "The Escape key was pressed" << endl;
-			event.type = Event::Closed;
+		    m_Window.close();	
 		}
 		if (event.type == sf::Event::MouseButtonPressed)
 		{
